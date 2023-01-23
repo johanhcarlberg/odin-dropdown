@@ -1,0 +1,12 @@
+{
+  "name": "dropdown",
+  "version": "1.0.0",
+  "description": "This project was initially created as part of the Javascript course on [The Odin Project website](https://www.theodinproject.com)  \r The goal of the project was to create a simple dropdown menu that is reusable.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
