@@ -5,6 +5,8 @@ export default class Dropdown {
 
     render() {
         this.dropdownList = document.createElement('ul');
+
+        return this.dropdownList;
     }
 
     addItem(title, link) {
