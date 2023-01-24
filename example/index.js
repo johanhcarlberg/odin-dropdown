@@ -8,6 +8,7 @@ const dropdown = new Dropdown();
 dropdown.addItem('Dropdown 1', '');
 
 navLinks.children[0].appendChild(dropdown.render());
+navLinks.children[0].addEventListener('click', () => dropdown.toggle());
 
 
 
