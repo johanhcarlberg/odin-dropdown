@@ -8,12 +8,14 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:lib": "webpack --config webpack.config.build-lib.js",
     "build:example": "webpack --config webpack.config.build-example.js",
-    "build": "run-s build:lib build:example"
+    "build": "run-s build:lib build:example",
+    "postbuild": "copyfiles -f ./dist/*.js ./dist/example"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "css-loader": "^6.7.3",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
