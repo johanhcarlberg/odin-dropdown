@@ -10,6 +10,8 @@ navLinks.children[0].appendChild(dropdown.render());
 
 const dropdownLeft = new Dropdown(true, navLinks.children[2]);
 dropdownLeft.addItem('Dropdown 1', '');
+dropdownLeft.addItem('Dropdown 2', '');
+dropdownLeft.addItem('Dropdown 3', '');
 navLinks.children[2].appendChild(dropdownLeft.render());
 
 
