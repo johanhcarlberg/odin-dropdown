@@ -39,7 +39,6 @@ export default class Dropdown {
     }
 
     toggle() {
-        console.log(this);
         if (this.dropdownList.classList.contains('visible')) {
             this.close();
         } else {
