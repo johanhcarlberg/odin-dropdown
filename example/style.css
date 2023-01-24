@@ -6,4 +6,5 @@ nav ul {
 
 nav>ul>li {
     position: relative;
+    cursor: pointer;
 }
