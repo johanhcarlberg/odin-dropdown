@@ -11,6 +11,11 @@
     width: max-content;
     list-style: none;
     box-shadow: 0 0 10px #999;
+    z-index: 2;
+}
+
+.dropdown-left {
+    right: 0%;
 }
 
 .dropdown-item {
