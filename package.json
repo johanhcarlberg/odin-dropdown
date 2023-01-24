@@ -2,11 +2,24 @@
   "name": "dropdown",
   "version": "1.0.0",
   "description": "This project was initially created as part of the Javascript course on [The Odin Project website](https://www.theodinproject.com)  \r The goal of the project was to create a simple dropdown menu that is reusable.",
-  "main": "index.js",
+  "main": "dist/dropdown.js",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:lib": "webpack --config webpack.config.build-lib.js",
+    "build:example": "webpack --config webpack.config.build-example.js",
+    "build": "run-s build:lib build:example"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "css-loader": "^6.7.3",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "npm-run-all": "^4.1.5"
+  }
 }

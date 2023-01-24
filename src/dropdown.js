@@ -1,3 +1,5 @@
+import './dropdown.css';
+
 export default class Dropdown {
     constructor() {
         this.items = [];
@@ -9,7 +11,7 @@ export default class Dropdown {
 
         for (const item of this.items) {
             const dropdownItem = document.createElement('li');
-            dropdownItem.classList.add('dropdown-item');
+            dropdownItem.classList.add('dropdown-item', 'visible');
 
             const dropdownLink = document.createElement('a');
             dropdownLink.classList.add('dropdown-item-link');
@@ -21,6 +23,10 @@ export default class Dropdown {
         }
 
         return this.dropdownList;
+    }
+
+    toggle() {
+        this.dropdownList.classList.toggle('visible');
     }
 
     addItem(title, link) {
