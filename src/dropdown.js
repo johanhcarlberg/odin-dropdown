@@ -1,13 +1,17 @@
 import './dropdown.css';
 
 export default class Dropdown {
-    constructor() {
+    constructor(left) {
         this.items = [];
+        this.left = left || false;
     }
 
     render() {
         this.dropdownList = document.createElement('ul');
         this.dropdownList.classList.add('dropdown')
+        if (this.left) {
+            this.dropdownList.classList.add('dropdown-left');
+        }
 
         for (const item of this.items) {
             const dropdownItem = document.createElement('li');
@@ -27,7 +31,15 @@ export default class Dropdown {
 
     toggle() {
         console.log(this);
-        this.dropdownList.classList.toggle('visible');
+        if (this.dropdownList.classList.contains('visible')) {
+            this.dropdownList.classList.remove('visible');
+        } else {
+            const visibleDropdowns = document.querySelectorAll('.dropdown.visible');
+            for (let dropdown of visibleDropdowns) {
+                dropdown.classList.remove('visible');
+            }
+            this.dropdownList.classList.add('visible');
+        }
     }
 
     addItem(title, link) {
