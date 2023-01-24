@@ -1,15 +1,15 @@
 import './dropdown.css';
 
 export default class Dropdown {
-    constructor(left) {
+    constructor(rightAligned) {
         this.items = [];
-        this.left = left || false;
+        this.rightAligned = rightAligned || false;
     }
 
     render() {
         this.dropdownList = document.createElement('ul');
         this.dropdownList.classList.add('dropdown')
-        if (this.left) {
+        if (this.rightAligned) {
             this.dropdownList.classList.add('dropdown-left');
         }
 
