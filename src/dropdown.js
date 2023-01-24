@@ -32,14 +32,22 @@ export default class Dropdown {
     toggle() {
         console.log(this);
         if (this.dropdownList.classList.contains('visible')) {
-            this.dropdownList.classList.remove('visible');
+            this.close();
         } else {
             const visibleDropdowns = document.querySelectorAll('.dropdown.visible');
             for (let dropdown of visibleDropdowns) {
-                dropdown.classList.remove('visible');
+                dropdown.close();
             }
-            this.dropdownList.classList.add('visible');
+            this.open();
         }
+    }
+
+    close() {
+        dropdown.classList.remove('visible');
+    }
+
+    open() {
+        this.dropdownList.classList.add('visible');
     }
 
     addItem(title, link) {
