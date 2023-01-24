@@ -11,7 +11,7 @@ export default class Dropdown {
 
         for (const item of this.items) {
             const dropdownItem = document.createElement('li');
-            dropdownItem.classList.add('dropdown-item', 'visible');
+            dropdownItem.classList.add('dropdown-item');
 
             const dropdownLink = document.createElement('a');
             dropdownLink.classList.add('dropdown-item-link');
@@ -26,6 +26,7 @@ export default class Dropdown {
     }
 
     toggle() {
+        console.log(this);
         this.dropdownList.classList.toggle('visible');
     }
 
