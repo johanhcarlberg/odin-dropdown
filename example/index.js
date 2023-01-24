@@ -4,17 +4,14 @@ import './style.css';
 const nav = document.querySelector('nav');
 const navLinks = nav.querySelector('ul');
 
-const dropdown = new Dropdown();
+const dropdown = new Dropdown(false, navLinks.children[0]);
 dropdown.addItem('Dropdown 1', '');
-
-const dropdownLeft = new Dropdown(true);
-dropdownLeft.addItem('Dropdown 1', '');
-
 navLinks.children[0].appendChild(dropdown.render());
-navLinks.children[0].addEventListener('click', () => dropdown.toggle());
 
+const dropdownLeft = new Dropdown(true, navLinks.children[2]);
+dropdownLeft.addItem('Dropdown 1', '');
 navLinks.children[2].appendChild(dropdownLeft.render());
-navLinks.children[2].addEventListener('click', () => dropdownLeft.toggle());
+
 
 
 

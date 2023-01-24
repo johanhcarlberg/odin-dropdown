@@ -1,9 +1,18 @@
 import './dropdown.css';
 
 export default class Dropdown {
-    constructor(rightAligned) {
+    constructor(rightAligned, openTarget) {
         this.items = [];
         this.rightAligned = rightAligned || false;
+
+        this.openTarget = openTarget;
+        this.openTarget.addEventListener('click', () => this.toggle());
+        document.addEventListener('click', (e) => {
+            if(this.openTarget.contains(e.target)) {
+                return;
+            }
+            this.close();
+        })
     }
 
     render() {
@@ -34,20 +43,24 @@ export default class Dropdown {
         if (this.dropdownList.classList.contains('visible')) {
             this.close();
         } else {
-            const visibleDropdowns = document.querySelectorAll('.dropdown.visible');
-            for (let dropdown of visibleDropdowns) {
-                dropdown.close();
-            }
+            this.closeAllOpenDropdowns();
             this.open();
         }
     }
 
     close() {
-        dropdown.classList.remove('visible');
+        this.dropdownList.classList.remove('visible');
     }
 
     open() {
         this.dropdownList.classList.add('visible');
+    }
+    
+    closeAllOpenDropdowns() {
+        const visibleDropdowns = document.querySelectorAll('.dropdown.visible');
+        for (let dropdown of visibleDropdowns) {
+            dropdown.classList.remove('visible');
+        }
     }
 
     addItem(title, link) {
