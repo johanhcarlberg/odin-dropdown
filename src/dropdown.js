@@ -62,12 +62,12 @@ export default class Dropdown {
     }
 
     setupHoverToggle() {
-        this.openTarget.addEventListener('mouseover', () => {
-            this.open();
+        this.openTarget.addEventListener('mouseenter', () => {
+            this.toggle();
         });
 
         this.openTarget.addEventListener('mouseleave', () => {
-            this.close();
+            this.toggle();
         })
     }
 
