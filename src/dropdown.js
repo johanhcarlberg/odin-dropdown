@@ -1,18 +1,31 @@
 import './dropdown.css';
 
 export default class Dropdown {
-    constructor(rightAligned, openTarget, toggleMethod) {
+    /**
+     * [Dropdown]
+     * @param {boolean} [rightAligned=false] - Determines if dropdown is right-aligned or not
+     * @param {Node} openTarget - Element used for toggling the dropdown
+     * @param {('click'|'hover')} [toggleMethod="click"] - Method for toggling the dropdown
+    */
+    constructor(rightAligned = false, openTarget, toggleMethod = 'click') {
+        if (openTarget === undefined) {
+            throw new Error('openTarget is undefined');
+        }
+
+        if (!(openTarget instanceof Element)) {
+            throw new Error('openTarget is not a valid element');
+        }
+
         this.items = [];
-        this.rightAligned = rightAligned || false;
+        this.rightAligned = rightAligned;
         this.openTarget = openTarget;
-        this.toggleMethod = toggleMethod || 'click';
+        this.toggleMethod = toggleMethod;
         
         if (this.toggleMethod === 'click') {
             this.setupClickToggle();
         } else if (this.toggleMethod === 'hover') {
             this.setupHoverToggle();
         }
-        
     }
 
     render() {
