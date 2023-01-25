@@ -6,13 +6,7 @@ export default class Dropdown {
         this.rightAligned = rightAligned || false;
 
         this.openTarget = openTarget;
-        this.openTarget.addEventListener('click', () => this.toggle());
-        document.addEventListener('click', (e) => {
-            if(this.openTarget.contains(e.target)) {
-                return;
-            }
-            this.close();
-        })
+        this.setupClickToggle();
     }
 
     render() {
@@ -36,6 +30,16 @@ export default class Dropdown {
         }
 
         return this.dropdownList;
+    }
+
+    setupClickToggle() {
+        this.openTarget.addEventListener('click', () => this.toggle());
+        document.addEventListener('click', (e) => {
+            if(this.openTarget.contains(e.target)) {
+                return;
+            }
+            this.close();
+        })
     }
 
     toggle() {
