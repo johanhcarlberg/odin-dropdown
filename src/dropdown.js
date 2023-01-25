@@ -9,6 +9,8 @@ export default class Dropdown {
         
         if (this.toggleMethod === 'click') {
             this.setupClickToggle();
+        } else if (this.toggleMethod === 'hover') {
+            this.setupHoverToggle();
         }
         
     }
@@ -42,6 +44,16 @@ export default class Dropdown {
             if(this.openTarget.contains(e.target)) {
                 return;
             }
+            this.close();
+        })
+    }
+
+    setupHoverToggle() {
+        this.openTarget.addEventListener('mouseover', () => {
+            this.open();
+        });
+
+        this.openTarget.addEventListener('mouseleave', () => {
             this.close();
         })
     }

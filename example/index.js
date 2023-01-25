@@ -4,7 +4,7 @@ import './style.css';
 const nav = document.querySelector('nav');
 const navLinks = nav.querySelector('ul');
 
-const dropdown = new Dropdown(false, navLinks.children[0]);
+const dropdown = new Dropdown(false, navLinks.children[0], 'hover');
 dropdown.addItem('Dropdown 1', '');
 navLinks.children[0].appendChild(dropdown.render());
 
