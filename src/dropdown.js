@@ -1,12 +1,16 @@
 import './dropdown.css';
 
 export default class Dropdown {
-    constructor(rightAligned, openTarget) {
+    constructor(rightAligned, openTarget, toggleMethod) {
         this.items = [];
         this.rightAligned = rightAligned || false;
-
         this.openTarget = openTarget;
-        this.setupClickToggle();
+        this.toggleMethod = toggleMethod || 'click';
+        
+        if (this.toggleMethod === 'click') {
+            this.setupClickToggle();
+        }
+        
     }
 
     render() {
